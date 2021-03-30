@@ -1,18 +1,24 @@
 
-S	java:S106"9Replace this use of System.out or System.err by a logger.(ßâÎ‹úÿÿÿÿ
-j
-java:S2095("HUse try-with-resources or close this "FileWriter" in a "finally" clause.(µø½¤ùÿÿÿÿ8Û³‹Ï‡/
-o
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(¬ÔøÂ8¨á·Ï‡/
-\
-java:S1118":Add a private constructor to hide the implicit public one.(ãòÙÂøÿÿÿÿ8ÇïÄÏ‡/
-X	java:S125"<This block of commented-out lines of code should be removed.(†ò¼ı8ÇïÄÏ‡/
-e
-java:S2095'"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Íöøş8·º¢Ñ‡/
+U	java:S106G"9Replace this use of System.out or System.err by a logger.(´‘í¼8Í¬Á›ˆ/
+r	java:S116"QRename this field "INSERT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÚùÖÆıÿÿÿÿ8ÂÔ›ˆ/
+U	java:S106O"9Replace this use of System.out or System.err by a logger.(·âÉµ8Í¬Á›ˆ/
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(È½¯µúÿÿÿÿ8Í¬Á›ˆ/
+Z	java:S106Q"9Replace this use of System.out or System.err by a logger.(Â¦Ä¯úÿÿÿÿ8Í¬Á›ˆ/
+q	java:S116"URename this field "DROP_TABLE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Áœí¿8ÂÔ›ˆ/
 p
-java:S11925"SDefine a constant instead of duplicating this literal "[query type User] " 8 times.(¨¯•Ø8·º¢Ñ‡/
-r	java:S117%"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(È½¯µúÿÿÿÿ8·º¢Ñ‡/
-U	java:S106U"9Replace this use of System.out or System.err by a logger.(´‘í¼8·º¢Ñ‡/
-Z	java:S106X"9Replace this use of System.out or System.err by a logger.(¢Ì„úÿÿÿÿ8·º¢Ñ‡/
-U	java:S106]"9Replace this use of System.out or System.err by a logger.(·âÉµ8·º¢Ñ‡/
-Z	java:S106_"9Replace this use of System.out or System.err by a logger.(Â¦Ä¯úÿÿÿÿ8·º¢Ñ‡/
+java:S1192'"SDefine a constant instead of duplicating this literal "[query type User] " 8 times.(¨¯•Ø8Í¬Á›ˆ/
+m	java:S116
+"QRename this field "DELETE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—ºÀû8ÂÔ›ˆ/
+r	java:S116"QRename this field "SELECT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç¼°‘ùÿÿÿÿ8ÂÔ›ˆ/
+w	java:S116"VRename this field "FOREIGN_KEY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îàÆùÿÿÿÿ8ÂÔ›ˆ/
+x	java:S116"WRename this field "CREATE_TABLE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁğÛµÿÿÿÿÿ8‡ƒÀ›ˆ/
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(ßâÎ‹úÿÿÿÿ8Í¬Á›ˆ/
+e
+java:S2095"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Íöøş8Í¬Á›ˆ/
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.( ü‹ûÿÿÿÿ8Í¬Á›ˆ/
+m	java:S116	"QRename this field "UPDATE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÕØ‡•8ÂÔ›ˆ/
+r	java:S116"VRename this field "PRIMARY_KEY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(à™éö8ÂÔ›ˆ/
+Z	java:S106J"9Replace this use of System.out or System.err by a logger.(¢Ì„úÿÿÿÿ8Í¬Á›ˆ/
+j
+java:S2095"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(µø½¤ùÿÿÿÿ8Û³‹Ï‡/

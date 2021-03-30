@@ -1,0 +1,14 @@
+
+^
+java:S2095"HUse try-with-resources or close this "FileReader" in a "finally" clause.(õğêí
+c
+java:S2095+"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(âÄÖıÿÿÿÿ
+c
+java:S2095"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(âÄÖıÿÿÿÿ
+g
+java:S2095"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(µÎ Àúÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œğ·ê
+N	java:S106"9Replace this use of System.out or System.err by a logger.(†²‹
+M	java:S106"9Replace this use of System.out or System.err by a logger.(—íú 
+S	java:S106&"9Replace this use of System.out or System.err by a logger.(òıÂ¸ùÿÿÿÿ
+N	java:S1064"9Replace this use of System.out or System.err by a logger.(Ñ“Çî
