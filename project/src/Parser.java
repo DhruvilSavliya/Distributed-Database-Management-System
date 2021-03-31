@@ -1,3 +1,5 @@
+import DDL.DDLQueryExecution;
+
 import java.io.*;
 import java.util.*;
 import java.util.regex.*;
@@ -40,7 +42,8 @@ public class Parser {
                 create(createTable, username, eventfile, generalfile);
             } else if (insert.find()) {
                 eventfile.append("[").append(username).append("] ").append("[query type User] ").append(input).append("\n");
-                create(insert, username, eventfile, generalfile);
+                DDLQueryExecution ddlQueryExecution = new DDLQueryExecution();
+                ddlQueryExecution.insert(insert, username, eventfile, generalfile);
             } else if (select.find()) {
                 eventfile.append("[").append(username).append("] ").append("[query type User] ").append(input).append("\n");
                 create(select, username, eventfile, generalfile);
