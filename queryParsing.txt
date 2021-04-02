@@ -1,0 +1,1 @@
+[Create table query]CREATE TABLE demo3 (id int)

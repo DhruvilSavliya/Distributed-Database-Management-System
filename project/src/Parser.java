@@ -1,3 +1,5 @@
+import DDL.DDLQueryExecution;
+
 import java.io.*;
 import java.util.*;
 import java.util.regex.*;
@@ -10,7 +12,7 @@ public class Parser {
     final String createTableRegex = "^CREATE\\sTABLE\\s\\w{1,}\\s.*.";
 
 
-    public void userInput() throws Exception {
+    public void userInput(String username) throws Exception {
         final Pattern selectPattern = Pattern.compile(selectRegex);
         final Pattern insertPattern = Pattern.compile(insertRegex);
         final Pattern deletePattern = Pattern.compile(deleteRegex);
@@ -24,11 +26,11 @@ public class Parser {
         final Matcher insertMatcher = insertPattern.matcher(queryInput);
         final Matcher deleteMatcher = deletePattern.matcher(queryInput);
         final Matcher createTableMatcher = createTablePattern.matcher(queryInput);
+        DDLQueryExecution ddlQueryExecution = new DDLQueryExecution();
 
         FileWriter myFile = new FileWriter("queryParsing.txt");
         FileWriter eventfile = new FileWriter("EventLogs.txt",true);
         FileWriter generalfile = new FileWriter("GeneralLogs.txt",true);
-
 
         if(selectMatcher.find())
         {
@@ -52,8 +54,8 @@ public class Parser {
         {
             myFile.append("[Create table query]").append(queryInput).append("\n");
             myFile.flush();
-
             // Create table methode code goes here
+            ddlQueryExecution.createTable(createTableMatcher, username);
         }else
         {
             System.out.println("Invalid SQL syntax .Please check your query ");

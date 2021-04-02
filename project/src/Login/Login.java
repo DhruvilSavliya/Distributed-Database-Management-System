@@ -9,7 +9,9 @@ import java.util.Scanner;
 
 public class Login {
 
-    public Boolean login() {
+    private static String LOGIN_FAILED = "LOGIN_FAILED";
+
+    public String login() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your username");
         String username = scanner.next();
@@ -26,19 +28,19 @@ public class Login {
                     byte[] decodedBytes = Base64.getDecoder().decode(userDetails[1]);
                     String decodedPassword = new String(decodedBytes, StandardCharsets.UTF_8);
                     if (password.equals(decodedPassword)) {
-                        return true;
+                        return username;
                     }
                     else {
                         System.out.println("Wrong password. Please try again");
-                        return false;
+                        return LOGIN_FAILED;
                     }
                 }
                 user = bufferedReader.readLine();
             }
         } catch (Exception e) {
             System.out.println("Exception in application : "+e.getMessage());
-            return false;
+            return LOGIN_FAILED;
         }
-        return false;
+        return LOGIN_FAILED;
     }
 }
