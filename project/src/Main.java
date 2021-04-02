@@ -1,5 +1,4 @@
-import Login.Login;
-import Login.Registration;
+import Login.*;
 
 import java.util.Scanner;
 
@@ -28,5 +27,12 @@ public class Main {
                 System.out.println("Registration failed. Please try again.");
             }
         }
+
+//        Parser p=new Parser();
+//        try {
+//            p.userInput();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 }
