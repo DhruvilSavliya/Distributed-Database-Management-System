@@ -26,34 +26,39 @@ public class Parser {
         final Matcher createTableMatcher = createTablePattern.matcher(queryInput);
 
         FileWriter myFile = new FileWriter("queryParsing.txt");
+        FileWriter eventfile = new FileWriter("EventLogs.txt",true);
+        FileWriter generalfile = new FileWriter("GeneralLogs.txt",true);
+
 
         if(selectMatcher.find())
         {
             myFile.append("[Select query]").append(queryInput).append("\n");
             myFile.flush();
-            myFile.close();
+
             // Select methode code goes here
         }else if(insertMatcher.find())
         {
             myFile.append("[Insert query]").append(queryInput).append("\n");
             myFile.flush();
-            myFile.close();
+
             // insert methode code goes here
         }else if(deleteMatcher.find())
         {
             myFile.append("[Delete query]").append(queryInput).append("\n");
             myFile.flush();
-            myFile.close();
+
             // delete methode code goes here
         }else if(createTableMatcher.find())
         {
             myFile.append("[Create table query]").append(queryInput).append("\n");
             myFile.flush();
-            myFile.close();
+
             // Create table methode code goes here
+        }else
+        {
+            System.out.println("Invalid SQL syntax .Please check your query ");
         }
-
-
+        myFile.close();
     }
 
 
