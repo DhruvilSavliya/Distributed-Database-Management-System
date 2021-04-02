@@ -1,29 +1,28 @@
 
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µ®“¦ÿÿÿÿÿ8¦Åé¦ˆ/
+m	java:S117m"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–¤œ8«ºèÇˆ/
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Âø‚€8áÓÆˆ/
+j
+java:S2095""HUse try-with-resources or close this "FileWriter" in a "finally" clause.(É©ßøÿÿÿÿ8áÓÆˆ/
+Q
+java:S10660"/Merge this if statement with the enclosing one.(úú™ªùÿÿÿÿ8€ĞÇˆ/
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÆÕâÄùÿÿÿÿ8áÓÆˆ/
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²Åùıúÿÿÿÿ8áÓÆˆ/
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãè òûÿÿÿÿ8áÓÆˆ/
 £
-java:S1186
-"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¹ŞßÃıÿÿÿÿ8©ëƒ¢ˆ/
-]
-java:S1854"@Remove this useless assignment to local variable "ListOfValues".(Âø‚€8äı¼¨ˆ/
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãè òûÿÿÿÿ8‚ŒÅ¨ˆ/
-N
-java:S1481"1Remove this unused "ListOfValues" local variable.(Âø‚€8äı¼¨ˆ/
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ü†—¢
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éñ€üÿÿÿÿ8ìµ¨ˆ/
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÆÕâÄùÿÿÿÿ8ìµ¨ˆ/
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Âø‚€8·¼¨ˆ/
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­â©Ÿ8ìµ¨ˆ/
-U	java:S106"9Replace this use of System.out or System.err by a logger.(şì“«8°¥‚§ˆ/
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²Åùıúÿÿÿÿ8Š¤¯¨ˆ/
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ìòî“ıÿÿÿÿ8şİ»¨ˆ/
-b
-java:S1854"@Remove this useless assignment to local variable "ListOfColums".(ÆÕâÄùÿÿÿÿ8ìµ¨ˆ/
-S
-java:S1481"1Remove this unused "ListOfColums" local variable.(ÆÕâÄùÿÿÿÿ8ìµ¨ˆ/
-P
-java:S1481".Remove this unused "StartTime" local variable.(ãè òûÿÿÿÿ8 ½Å¨ˆ/
-C
-java:S1172"&Remove these unused method parameters.(Â Îº8¦Åé¦ˆ/
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢òÕùúÿÿÿÿ8‰…§ˆ/
-_
-java:S1854"=Remove this useless assignment to local variable "StartTime".(ãè òûÿÿÿÿ8„ãÄ¨ˆ/
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¹ŞßÃıÿÿÿÿ8áÓÆˆ/
+U	java:S106"9Replace this use of System.out or System.err by a logger.(şì“«8áÓÆˆ/
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢òÕùúÿÿÿÿ8áÓÆˆ/
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µ®“¦ÿÿÿÿÿ8áÓÆˆ/
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éñ€üÿÿÿÿ8áÓÆˆ/
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ìòî“ıÿÿÿÿ8áÓÆˆ/
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­â©Ÿ8áÓÆˆ/
+m	java:S117l"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úµŠœ8ÍÃåÇˆ/
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 75 to the 15 allowed.(ÄşÃÔùÿÿÿÿ8ôŞÏÇˆ/
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ü†—¢8áÓÆˆ/
+n
+java:S20954"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(²³Â½úÿÿÿÿ8€ĞÇˆ/
+n
+java:S2095%"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(Î„îóıÿÿÿÿ8áÓÆˆ/
+U	java:S106G"9Replace this use of System.out or System.err by a logger.(Ş¥Î8€ĞÇˆ/
+m	java:S117#"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÚÄÔ‡8áÓÆˆ/

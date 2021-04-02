@@ -17,7 +17,7 @@ public class DDLQueryExecution {
 
     public void insert(Matcher insert, String username, FileWriter eventfile, FileWriter generalfile) throws IOException {
         String TableName = insert.group(2);
-        File file = new File(TableName);
+        File file = new File("project/Data/"+username +"_"+TableName+".txt");
         boolean does_not_exist = !file.exists();
         if (does_not_exist) {
             System.out.println("Table does not exist");
