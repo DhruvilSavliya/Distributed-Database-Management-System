@@ -1,28 +1,25 @@
 
+L
+java:S5411I"*Use the primitive boolean expression here.(ó—¹Úúÿÿÿÿ8«ğ¡‰/
 j
-java:S2095""HUse try-with-resources or close this "FileWriter" in a "finally" clause.(É©ßøÿÿÿÿ8áÓÆˆ/
-m	java:S117#"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÚÄÔ‡8áÓÆˆ/
+java:S2095."HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Ùìşöşÿÿÿÿ8«ğ¡‰/
+j
+java:S2095N"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Ùìşöşÿÿÿÿ8«ğ¡‰/
+q
+java:S3008"TRename this field "SEMICOLON" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ¢Ğ‰8«ğ¡‰/
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(£èĞ§øÿÿÿÿ8«ğ¡‰/
+U	java:S106J"9Replace this use of System.out or System.err by a logger.(ãƒªÒ8«ğ¡‰/
+n
+java:S2095<"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(ÃÖ§óşÿÿÿÿ8«ğ¡‰/
+]	java:S125"<This block of commented-out lines of code should be removed.(‰¾·½ûÿÿÿÿ8«ğ¡‰/
+W
+java:S1144+"5Remove this unused private "updateDictionary" method.(üÀŞªùÿÿÿÿ8«ğ¡‰/
 t
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 75 to the 15 allowed.(ÄşÃÔùÿÿÿÿ8ôŞÏÇˆ/
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ìòî“ıÿÿÿÿ8áÓÆˆ/
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­â©Ÿ8áÓÆˆ/
-m	java:S117l"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úµŠœ8ÍÃåÇˆ/
-m	java:S117m"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–¤œ8«ºèÇˆ/
+java:S3776+"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(üÀŞªùÿÿÿÿ8«ğ¡‰/
+]	java:S125"<This block of commented-out lines of code should be removed.(ø ªîıÿÿÿÿ8«ğ¡‰/
+Z	java:S106'"9Replace this use of System.out or System.err by a logger.(¦ñ³¦øÿÿÿÿ8«ğ¡‰/
+L
+java:S1172"/Remove this unused method parameter "username".(”¤şå8«ğ¡‰/
+e
+java:S2095"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Ÿë¯×8«ğ¡‰/
 v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ü†—¢8áÓÆˆ/
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éñ€üÿÿÿÿ8áÓÆˆ/
-£
-java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¹ŞßÃıÿÿÿÿ8áÓÆˆ/
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µ®“¦ÿÿÿÿÿ8áÓÆˆ/
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Âø‚€8áÓÆˆ/
-Q
-java:S10660"/Merge this if statement with the enclosing one.(úú™ªùÿÿÿÿ8€ĞÇˆ/
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²Åùıúÿÿÿÿ8áÓÆˆ/
-U	java:S106G"9Replace this use of System.out or System.err by a logger.(Ş¥Î8€ĞÇˆ/
-n
-java:S2095%"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(Î„îóıÿÿÿÿ8áÓÆˆ/
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÆÕâÄùÿÿÿÿ8áÓÆˆ/
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãè òûÿÿÿÿ8áÓÆˆ/
-n
-java:S20954"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(²³Â½úÿÿÿÿ8€ĞÇˆ/
-U	java:S106"9Replace this use of System.out or System.err by a logger.(şì“«8áÓÆˆ/
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢òÕùúÿÿÿÿ8áÓÆˆ/

@@ -1,115 +1,95 @@
 package DDL;
 
+import java.util.Map;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 import java.util.regex.Matcher;
 
 public class DDLQueryExecution {
-    public void createTable(Matcher createtable, String username){
 
-    }
+    private static String SEMICOLON = ";";
 
-    public void insert(Matcher insert, String username, FileWriter eventfile, FileWriter generalfile) throws IOException {
-        String TableName = insert.group(2);
-        File file = new File("project/Data/"+username +"_"+TableName+".txt");
-        boolean does_not_exist = !file.exists();
-        if (does_not_exist) {
-            System.out.println("Table does not exist");
-        } else {
-            String Columns = insert.group(3);
-            String Values = insert.group(4);
-            String[] Column = Columns.split("\\s*,\\s*");
-            String[] Value = Values.split("\\s*,\\s*");
-            List<String> ListOfColums = Arrays.asList(Column);
-            List<String> ListOfValues = Arrays.asList(Value);
-            long StartTime = System.currentTimeMillis();
-
-            File tablefile = new File(TableName + ".txt");
-            FileWriter fileWriter = new FileWriter(tablefile, true);
-            File GDD = new File("Data_Dictionary.txt");
-            FileReader readGDD = new FileReader(GDD);
-            BufferedReader brGDD = new BufferedReader(readGDD);
-            String input;
-            List<String> temp = new ArrayList<>();
-            input = brGDD.readLine();
-
-            while (input != null) {
-
-                while (!input.isBlank()) {
-                    String[] tempcolumn = input.split(" ");
-
-                    if (tempcolumn.length > 2) {
-                        if (tempcolumn[2].equalsIgnoreCase("pk")) {
-
-                            File ftn = new File(TableName + ".txt");
-                            FileReader tnfr = new FileReader(ftn);
-                            BufferedReader tnbr = new BufferedReader(tnfr);
-                            List<String> column1 = new ArrayList<>();
-                            String execute = tnbr.readLine();
-                            while (execute != null) {
-                                if (!execute.isBlank()) {
-                                    String[] e = execute.split(" ");
-                                    String tablecolumn = e[0];
-                                    if (tablecolumn.equalsIgnoreCase(tempcolumn[0])) {
-                                        column1.add(e[1]);
-                                    }
-                                }
-                                execute = tnbr.readLine();
-                            }
-
-                            if (ListOfColums.contains(tempcolumn[0])) {
-                                int index = ListOfColums.indexOf(tempcolumn[0]);
-
-                                for (String s : column1) {
-                                    if (ListOfValues.get(index).equalsIgnoreCase(s)) {
-                                        System.out.println("Primary key column should contain unique value");
-                                    }
-                                }
-                            }
-
-                            tnbr.close();
-                            tnfr.close();
-                        }
-                    }
-                    temp.add(tempcolumn[0]);
-                    input = brGDD.readLine();
+    public void createTable(Matcher createMatcher, String username) {
+        try {
+            FileWriter eventLogsWriter = new FileWriter("EventLogs.txt", true);
+            String tableName = createMatcher.group(0);
+            String columns = createMatcher.group(1);
+            System.out.println("Table names : "+tableName+" Columns : "+columns);
+            /*String [] columnsArray = columns.split(",");
+            Map<String, String> columnMap = new HashMap<>();
+            for (int i=0; i<columnsArray.length; i++) {
+                String [] column = columnsArray[i].split(" ");
+                columnMap.put(column[0], column[1]);
+            }*/
+            /*if (updateDictionary(tableName, username, columnMap)) {
+                File tableFile = new File("project/Data/"+username+"_"+tableName+".txt");
+                if (tableFile.createNewFile()) {
+                    eventLogsWriter.append("[Table created] User: "+username+", Table: "+tableName);
+                    System.out.println("Table created!");
+                } else {
+                    System.out.println("Error in table creation! Please try again!");
                 }
-                int count = 0;
-                int novalue = 0;
-                for (int i = 0; i < temp.size(); i++) {
-                    for (int j = 0; j < ListOfColums.size(); j++) {
-                        if (temp.get(i).equalsIgnoreCase(ListOfColums.get(j))) {
-                            count = j;
-                            novalue = 1;
-                        }
-                    }
-                    fileWriter.append(temp.get(i));
-                    fileWriter.write(" ");
-                    if (novalue == 1) {
-                        fileWriter.append(ListOfValues.get(count));
-                    } else {
-                        fileWriter.write("");
-                    }
-                    fileWriter.write("\n");
-                    count = 0;
-                    novalue = 0;
-                }
-                fileWriter.write("\n");
-                input = brGDD.readLine();
-            }
-            brGDD.close();
-            fileWriter.close();
-            long EndTime = System.currentTimeMillis();
-            long TotalTime = EndTime - StartTime;
-            generalfile.append("[").append(username).append("] [Total time]").append(String.valueOf(TotalTime)).append(" milliseconds\n");
-            eventfile.append("[").append(username).append("] Inserted successfully").append("\n");
+            }*/
+            eventLogsWriter.close();
+        } catch (Exception e) {
+            System.out.println("[DDLQueryExecution] Exception in application : "+e.getMessage());
         }
-
     }
+
+    private Boolean updateDictionary(String tableName, String username, Map<String, String> columnMap) throws IOException{
+        File userTables = new File("project/Data/UserTableDictionary.txt");
+        if (userTables.createNewFile()) {
+            FileWriter userTableWriter = new FileWriter(userTables, true);
+            String userRow = username;
+            userTableWriter.append(userRow);
+            userTableWriter.append('\n');
+            userTableWriter.append(tableName);
+            userTableWriter.append('\n');
+            for (Map.Entry<String, String> entry : columnMap.entrySet()) {
+                userTableWriter.append(entry.getKey()+SEMICOLON+entry.getValue());
+                userTableWriter.append('\n');
+            }
+            userTableWriter.append('\n');
+            userTableWriter.close();
+        } else {
+            FileReader userTableReader = new FileReader(userTables);
+            BufferedReader bufferedReader = new BufferedReader(userTableReader);
+            String userRow = bufferedReader.readLine();
+            Boolean tableExists = false;
+            while (userRow != null) {
+                if (userRow.equals(username)) {
+                    userRow = bufferedReader.readLine();
+                    if (userRow.equals(tableName)) {
+                        tableExists = true;
+                        break;
+                    }
+                }
+                userRow = bufferedReader.readLine();
+            }
+            if (tableExists) {
+                System.out.println("Table already exists! Please enter another query");
+                return false;
+            }
+            bufferedReader.close();
+            FileWriter userTableWriter = new FileWriter(userTables, true);
+            String input = username;
+            userTableWriter.append(input);
+            userTableWriter.append('\n');
+            userTableWriter.append(tableName);
+            userTableWriter.append('\n');
+            for (Map.Entry<String, String> entry : columnMap.entrySet()) {
+                userTableWriter.append(entry.getKey()+SEMICOLON+entry.getValue());
+                userTableWriter.append('\n');
+            }
+            userTableWriter.append('\n');
+            userTableWriter.close();
+        }
+        return true;
+    }
+
+
 }

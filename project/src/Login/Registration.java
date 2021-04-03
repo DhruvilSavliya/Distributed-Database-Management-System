@@ -8,16 +8,16 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Scanner;
 
-public class Registration {
+public class Registration{
 
-    public Boolean register() {
+    public Boolean register() throws Exception {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please choose a Username");
         String username = scanner.next();
         System.out.println("Please chosse a password");
         String password = scanner.next();
         try {
-            File users = new File("project/Data/Users.txt");
+            File users = new File("Data/Users.txt");
             if (users.createNewFile()) {
                 FileWriter fileWriter = new FileWriter(users, true);
                 String outputline = username+";";

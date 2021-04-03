@@ -1,0 +1,26 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(â‚ÅŒşÿÿÿÿ
+j
+java:S2095"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(É©ßøÿÿÿÿ8ÔÔù¡‰/
+n
+java:S20951"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(²³Â½úÿÿÿÿ8ÔÔù¡‰/
+n
+java:S2095""LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(Î„îóıÿÿÿÿ8ÔÔù¡‰/
+Q
+java:S1066-"/Merge this if statement with the enclosing one.(úú™ªùÿÿÿÿ8ÔÔù¡‰/
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µ®“¦ÿÿÿÿÿ8ÔÔù¡‰/
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢òÕùúÿÿÿÿ8ÔÔù¡‰/
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éñ€üÿÿÿÿ8ÔÔù¡‰/
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²Åùıúÿÿÿÿ8ÔÔù¡‰/
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­â©Ÿ8ÔÔù¡‰/
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ìòî“ıÿÿÿÿ8ÔÔù¡‰/
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÆÕâÄùÿÿÿÿ8ÔÔù¡‰/
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Âø‚€8ÔÔù¡‰/
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãè òûÿÿÿÿ8ÔÔù¡‰/
+m	java:S117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÚÄÔ‡8ÔÔù¡‰/
+m	java:S117i"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(úµŠœ8ÔÔù¡‰/
+m	java:S117j"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–¤œ8ÔÔù¡‰/
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 75 to the 15 allowed.(ÄşÃÔùÿÿÿÿ8ÔÔù¡‰/
+U	java:S106"9Replace this use of System.out or System.err by a logger.(şì“«8ÔÔù¡‰/
+U	java:S106D"9Replace this use of System.out or System.err by a logger.(Ş¥Î8ÔÔù¡‰/

@@ -1,6 +1,6 @@
 
 G
-java:S1068",Remove this unused "userName" private field.(Û”øÚøÿÿÿÿ
+java:S1068",Remove this unused "password" private field.(œãë­úÿÿÿÿ
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÙÇ½½üÿÿÿÿ
 G
-java:S1068",Remove this unused "password" private field.(œãë­úÿÿÿÿ
+java:S1068",Remove this unused "userName" private field.(Û”øÚøÿÿÿÿ

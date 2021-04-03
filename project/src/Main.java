@@ -4,8 +4,9 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String [] args)
-    {
+    private static String LOGIN_FAILED = "LOGIN_FAILED";
+
+    public static void main(String [] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Group 18's DBMS Project. Please select an option");
         System.out.println("1. Login" +"\n"
@@ -13,8 +14,15 @@ public class Main {
         Integer option = scanner.nextInt();
         if (option == 1) {
             Login login = new Login();
-            if (login.login()) {
+            String loginResult = login.login();
+            if (!loginResult.equals(LOGIN_FAILED)) {
                 System.out.println("Login successful"); //Main flow to app goes here
+                try {
+                    Parser parser = new Parser();
+                    parser.userInput(loginResult);
+                } catch (Exception e) {
+                    System.out.println("Exception in application : "+e.getMessage());
+                }
             } else {
                 System.out.println("Login failed. Please try again.");
             }
@@ -27,12 +35,5 @@ public class Main {
                 System.out.println("Registration failed. Please try again.");
             }
         }
-
-//        Parser p=new Parser();
-//        try {
-//            p.userInput();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
     }
 }
