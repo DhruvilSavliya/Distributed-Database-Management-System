@@ -18,7 +18,7 @@ public class Login {
         System.out.println("Enter your password");
         String password = scanner.next();
         try {
-            File users = new File("project/Data/Users.txt");
+            File users = new File("Data/Users.txt");
             FileReader fileReader = new FileReader(users);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String user = bufferedReader.readLine();
