@@ -41,7 +41,13 @@ public class Parser {
             // Select methode code goes here
         }else if(insertMatcher.find())
         {
-//            System.out.println("Inserted");
+//            String tablename = insertMatcher.group(2);
+//
+//            System.out.println(tablename);
+//            File file = new File("Data/"+tablename+".txt");
+//            if (file.exists()){
+//                System.out.println("exist");
+//            }
 //            myFile.append("[Insert query]").append(queryInput).append("\n");
 //            myFile.flush();
             DMLQueryExecution dmlQueryExecution = new DMLQueryExecution();

@@ -1,0 +1,12 @@
+sid 1
+sname dhr
+
+sid 2
+sname dhr
+
+sid 2
+sname neeh
+
+sid 3
+sname tanuj
+
