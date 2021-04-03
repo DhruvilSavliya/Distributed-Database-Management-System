@@ -6,7 +6,7 @@ import java.util.regex.*;
 
 public class Parser {
 
-    final String selectRegex = "^SELECT\\s.\\sFROM\\s\\w{1,}\\sWHERE\\s\\w{1,}..\\w{1,}..*";
+    final String selectRegex = "^(SELECT)\\s(.)\\sFROM\\s\\w{1,}\\sWHERE\\s(\\w{1,}..\\w{1,}..*)";
     final String insertRegex = "^INSERT\\sINTO\\s\\w{1,}\\sVALUES.\\w{1,}.*";
     final String deleteRegex = "^DELETE\\sFROM\\s\\w{1,}\\sWHERE\\s.*";
     final String createTableRegex = "^CREATE\\sTABLE\\s\\w{1,}\\s.*.";
