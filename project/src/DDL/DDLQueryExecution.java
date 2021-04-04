@@ -1,6 +1,8 @@
 package DDL;
 
 
+import Locking.Locker;
+
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,6 +12,7 @@ public class DDLQueryExecution {
 
     private static String SEMICOLON = ";";
     private static String [] possibleDatatypes = new String[]{"int", "varchar", "boolean"};
+    Locker locker = new Locker();
 
     public void createTable(Matcher createMatcher, String username)
     {
@@ -37,7 +40,10 @@ public class DDLQueryExecution {
                     break;
                 }
             }
-
+            if (!locker.obtainLock(username, tableName)) {
+                System.out.println("Failed to obtain lock!");
+                return;
+            }
             for (int j=i+1; j< queryWords.length; j++)
             {
                 columns = columns+queryWords[j]+" ";
@@ -72,6 +78,10 @@ public class DDLQueryExecution {
                 }
             }
             eventLogsWriter.close();
+            if (!locker.removeLock(username, tableName)) {
+                System.out.println("Failed to remove lock!");
+                return;
+            }
         } catch (Exception e) {
             System.out.println("[DDLQueryExecution] Exception in application : "+e.getMessage());
         }
@@ -149,11 +159,19 @@ public class DDLQueryExecution {
                 }
             }
             tableName = tableName.substring(0, tableName.length()-1);
+            if (!locker.obtainLock(userName, tableName)) {
+                System.out.println("Failed to obtain lock on table");
+                return;
+            }
             if (removeFromDictionary(tableName, userName)) {
                 eventFile.write("[Table Dropped] Table : "+tableName+" User : "+userName+"\n");
                 System.out.println("Table dropped!");
             } else {
                 System.out.println("Failed to drop table.");
+            }
+            if (!locker.removeLock(userName, tableName)) {
+                System.out.println("Failed to remove lock of table");
+                return;
             }
         } catch (Exception e)
         {

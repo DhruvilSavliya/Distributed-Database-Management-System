@@ -1,6 +1,8 @@
 package DML;
 
 
+import Locking.Locker;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -15,9 +17,15 @@ import java.util.regex.Matcher;
 
 public class DMLQueryExecution {
 
+    Locker locker = new Locker();
+
     public void insert(Matcher insert, String username, FileWriter eventfile, FileWriter generalfile) throws IOException {
         String TableName, first, second;
         TableName = insert.group(2);
+        if (!locker.obtainLock(username, TableName)) {
+            System.out.println("Failed to obtain lock on table");
+            return;
+        }
         File file = new File("Data/" + username + "_" + TableName + ".txt");
         boolean file_exist = file.exists();
         if (file_exist) {
@@ -52,6 +60,10 @@ public class DMLQueryExecution {
         }
         eventfile.close();
         generalfile.close();
+        if (!locker.removeLock(username, TableName)) {
+            System.out.println("Failed to remove lock on table");
+            return;
+        }
 
     }
 
@@ -60,6 +72,10 @@ public class DMLQueryExecution {
         String query = delete.group(0);
         String[] querywords = query.split(" ");
         String TableName = querywords[2];
+        if (!locker.obtainLock(username, TableName)) {
+            System.out.println("Failed to obtain lock on table");
+            return;
+        }
         File file = new File("Data/" + username + "_" + TableName + ".txt");
         File fold = new File("Data/updated.txt");
         File fnew = new File("Data/" + username + "_" + TableName + ".txt");
@@ -120,11 +136,19 @@ public class DMLQueryExecution {
         if (fold.renameTo(fnew)) {
             System.out.println("renamed");
         }
+        if (!locker.removeLock(username, TableName)) {
+            System.out.println("Failed to remove lock on table");
+            return;
+        }
 
     }
 
     public void updateTable(String username,String updateOperations,String tableName,String conditions)
     {
+        if (!locker.obtainLock(username, tableName)) {
+            System.out.println("Failed to obtain lock on table");
+            return;
+        }
         String[] updateOperationsArray = updateOperations.trim().split("=");
         String[] conditionsArray = conditions.trim().split("=");
         try {
@@ -170,6 +194,10 @@ public class DMLQueryExecution {
             myfile.write(s);
             myfile.flush();
             myfile.close();
+            if (!locker.removeLock(username, tableName)) {
+                System.out.println("Failed to remove lock on table");
+                return;
+            }
         }catch(Exception e)
         {
             e.printStackTrace();

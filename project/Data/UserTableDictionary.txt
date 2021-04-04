@@ -16,3 +16,7 @@ student
 ;name
 (id;int
 
+neeh
+test1
+id;int
+
