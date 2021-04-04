@@ -9,7 +9,8 @@ public class DDLQueryExecution {
 
     private static String SEMICOLON = ";";
 
-    public void createTable(Matcher createMatcher, String username) {
+    public void createTable(Matcher createMatcher, String username)
+    {
         try {
             FileWriter eventLogsWriter = new FileWriter("EventLogs.txt", true);
             String query = createMatcher.group(0);
