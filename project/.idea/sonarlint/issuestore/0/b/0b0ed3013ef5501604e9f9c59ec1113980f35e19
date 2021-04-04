@@ -1,29 +1,20 @@
 
-R
-java:S1481""0Remove this unused "generalfile" local variable.(µø½¤ùÿÿÿÿ8¢şÎ¢‰/
 U	java:S106"9Replace this use of System.out or System.err by a logger.(è„ßŒ8 Ãë¡‰/
+X	java:S125-"<This block of commented-out lines of code should be removed.(‚´8Èû»À‰/
+C
+java:S1170"!Make this final field static too.(…Û¥ïùÿÿÿÿ8 Ãë¡‰/
+=
+java:S1170"!Make this final field static too.(–œçz8 Ãë¡‰/
+U	java:S106J"9Replace this use of System.out or System.err by a logger.(ÉÚõš8 Ãë¡‰/
+j
+java:S2095#"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(µø½¤ùÿÿÿÿ8 Ãë¡‰/
+e
+java:S2095""HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Íöøş8 Ãë¡‰/
+e
+java:S2095!"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(‰Î€8 Ãë¡‰/
+C
+java:S1170"!Make this final field static too.(àóõšÿÿÿÿÿ8 Ãë¡‰/
 >
 java:S1170
 "!Make this final field static too.(®Ã­±8 Ãë¡‰/
-C
-java:S1170"!Make this final field static too.(“ìºúÿÿÿÿ8 Ãë¡‰/
-C
-java:S1170"!Make this final field static too.(…Û¥ïùÿÿÿÿ8 Ãë¡‰/
-Z
-java:S1854!"=Remove this useless assignment to local variable "eventfile".(Íöøş8¢şÎ¢‰/
 b	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(É·å8 Ãë¡‰/
-e
-java:S2095!"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Íöøş8 Ãë¡‰/
-j
-java:S2095""HUse try-with-resources or close this "FileWriter" in a "finally" clause.(µø½¤ùÿÿÿÿ8 Ãë¡‰/
-W	java:S125-"<This block of commented-out lines of code should be removed.(‰©ıB8İĞ¢‰/
-C
-java:S1170"!Make this final field static too.(àóõšÿÿÿÿÿ8 Ãë¡‰/
-e
-java:S2095 "HUse try-with-resources or close this "FileWriter" in a "finally" clause.(‰Î€8 Ãë¡‰/
-U	java:S106B"9Replace this use of System.out or System.err by a logger.(ÉÚõš8 Ãë¡‰/
-a
-java:S1854""?Remove this useless assignment to local variable "generalfile".(µø½¤ùÿÿÿÿ8¢şÎ¢‰/
-K
-java:S1481!".Remove this unused "eventfile" local variable.(Íöøş8¢şÎ¢‰/
-Z	java:S106,"9Replace this use of System.out or System.err by a logger.(š¡©˜ûÿÿÿÿ8şÊÑ¢‰/

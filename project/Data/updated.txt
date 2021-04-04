@@ -1,9 +1,4 @@
-sid 1
-sname dhr
-
 sid 2
 sname dhr
-
 sid 3
 sname tanuj
-

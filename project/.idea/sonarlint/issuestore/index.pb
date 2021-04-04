@@ -23,3 +23,11 @@ L
 Data/UserTableDictionary.txt,d\0\d06b0cc05dfdfe2aca27aaa91345dd75118ab1e2
 N
 src/DML/DMLQueryExecution.java,f\4\f45d1b971a81a5c343825cd728151722b37306a3
+@
+Data/student.txt,1\3\135d9d04522d8517f3883f43b85279aa77afc315
+D
+Data/dhr_student.txt,1\8\18d7153779f7193df0fb1f56bb7e9ad2c5ceb4e5
+?
+GeneralLogs.txt,4\2\428aea96f89c264c57891f340558c565464407eb
+=
+EventLogs.txt,6\8\681c53f3f026d7c3ce9ddcd81472052c6cd4fbdc

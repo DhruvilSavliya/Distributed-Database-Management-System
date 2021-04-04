@@ -28,6 +28,7 @@ public class Parser {
         final Matcher deleteMatcher = deletePattern.matcher(queryInput);
         final Matcher createTableMatcher = createTablePattern.matcher(queryInput);
         DDLQueryExecution ddlQueryExecution = new DDLQueryExecution();
+        DMLQueryExecution dmlQueryExecution = new DMLQueryExecution();
 
         FileWriter myFile = new FileWriter("queryParsing.txt");
         FileWriter eventfile = new FileWriter("EventLogs.txt",true);
@@ -50,7 +51,7 @@ public class Parser {
 //            }
 //            myFile.append("[Insert query]").append(queryInput).append("\n");
 //            myFile.flush();
-            DMLQueryExecution dmlQueryExecution = new DMLQueryExecution();
+
             dmlQueryExecution.insert(insertMatcher, username, eventfile, generalfile);
 
 
@@ -59,8 +60,8 @@ public class Parser {
         {
             myFile.append("[Delete query]").append(queryInput).append("\n");
             myFile.flush();
+            dmlQueryExecution.delete(deleteMatcher, username, eventfile, generalfile);
 
-            // delete methode code goes here
         }else if(createTableMatcher.find())
         {
             myFile.append("[Create table query]").append(queryInput).append("\n");

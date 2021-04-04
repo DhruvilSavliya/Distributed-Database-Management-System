@@ -1,25 +1,52 @@
 
 L
-java:S5411I"*Use the primitive boolean expression here.(ó—¹Úúÿÿÿÿ8«ğ¡‰/
-j
-java:S2095."HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Ùìşöşÿÿÿÿ8«ğ¡‰/
-j
-java:S2095N"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Ùìşöşÿÿÿÿ8«ğ¡‰/
-q
-java:S3008"TRename this field "SEMICOLON" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ¢Ğ‰8«ğ¡‰/
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(£èĞ§øÿÿÿÿ8«ğ¡‰/
-U	java:S106J"9Replace this use of System.out or System.err by a logger.(ãƒªÒ8«ğ¡‰/
-n
-java:S2095<"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(ÃÖ§óşÿÿÿÿ8«ğ¡‰/
-]	java:S125"<This block of commented-out lines of code should be removed.(‰¾·½ûÿÿÿÿ8«ğ¡‰/
-W
-java:S1144+"5Remove this unused private "updateDictionary" method.(üÀŞªùÿÿÿÿ8«ğ¡‰/
+java:S5411"*Use the primitive boolean expression here.(½šÖŒùÿÿÿÿ8ƒæú¿‰/
+o
+java:S2095–"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(Ü•åãÿÿÿÿÿ8Çûú¿‰/
 t
-java:S3776+"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(üÀŞªùÿÿÿÿ8«ğ¡‰/
-]	java:S125"<This block of commented-out lines of code should be removed.(ø ªîıÿÿÿÿ8«ğ¡‰/
-Z	java:S106'"9Replace this use of System.out or System.err by a logger.(¦ñ³¦øÿÿÿÿ8«ğ¡‰/
-L
-java:S1172"/Remove this unused method parameter "username".(”¤şå8«ğ¡‰/
-e
-java:S2095"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Ÿë¯×8«ğ¡‰/
+java:S3776="RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(üÀŞªùÿÿÿÿ8ƒæú¿‰/
+_	java:S899¼"=Do something with the "boolean" value returned by "renameTo".(ù¸øÚúÿÿÿÿ8ƒæú¿‰/
+M
+java:S5411„"*Use the primitive boolean expression here.(¿…äìüÿÿÿÿ8ƒæú¿‰/
+]
+java:S1854µ"?Remove this useless assignment to local variable "currentLine".(¢÷©¯8ƒæú¿‰/
 v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ü†—¢8áÓÆˆ/
+[	java:S106†"9Replace this use of System.out or System.err by a logger.(ïÒÔÊşÿÿÿÿ8ƒæú¿‰/
+L
+java:S5411"*Use the primitive boolean expression here.(½šÖŒùÿÿÿÿ8ƒæú¿‰/
+z	java:S135"YReduce the total number of break and continue statements in this loop to use at most one.(…„­Üûÿÿÿÿ8ƒæú¿‰/
+U	java:S106\"9Replace this use of System.out or System.err by a logger.(ãƒªÒ8ƒæú¿‰/
+>
+java:S1643&"Use a StringBuilder instead.(¸‡±æûÿÿÿÿ8ƒæú¿‰/
+V	java:S106¾"9Replace this use of System.out or System.err by a logger.(Àåé¯8ƒæú¿‰/
+L
+java:S5411."*Use the primitive boolean expression here.(ñ˜©Üıÿÿÿÿ8ƒæú¿‰/
+L
+java:S5411["*Use the primitive boolean expression here.(ó—¹Úúÿÿÿÿ8ƒæú¿‰/
+i
+java:S2095—"LUse try-with-resources or close this "BufferedWriter" in a "finally" clause.(öäÄB8Çûú¿‰/
+l
+java:S4042»"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(æ•¢Ş8ƒæú¿‰/
+j
+java:S2095`"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Ùìşöşÿÿÿÿ8ƒæú¿‰/
+j
+java:S2095@"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Ùìşöşÿÿÿÿ8ƒæú¿‰/
+j
+java:S2095s"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(äõÊûûÿÿÿÿ8Çûú¿‰/
+Z	java:S1069"9Replace this use of System.out or System.err by a logger.(¦ñ³¦øÿÿÿÿ8ƒæú¿‰/
+[	java:S106ˆ"9Replace this use of System.out or System.err by a logger.(ÏÃ˜Ïúÿÿÿÿ8ƒæú¿‰/
+V	java:S106Œ"9Replace this use of System.out or System.err by a logger.(Àåé¯8ƒæú¿‰/
+V	java:S106š"9Replace this use of System.out or System.err by a logger.(çš…â8ƒæú¿‰/
+]	java:S899º";Do something with the "boolean" value returned by "delete".(‘§…öıÿÿÿÿ8ƒæú¿‰/
+e
+java:S2095"HUse try-with-resources or close this "FileWriter" in a "finally" clause.(Ÿë¯×8ƒæú¿‰/
+X	java:S899»";Do something with the "boolean" value returned by "delete".(æ•¢Ş8ƒæú¿‰/
+q
+java:S3008
+"TRename this field "SEMICOLON" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İ¢Ğ‰8ƒæú¿‰/
+U	java:S1064"9Replace this use of System.out or System.err by a logger.(úƒ…Ó8ƒæú¿‰/
+q
+java:S4042º"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(‘§…öıÿÿÿÿ8ƒæú¿‰/
+n
+java:S2095N"LUse try-with-resources or close this "BufferedReader" in a "finally" clause.(ÃÖ§óşÿÿÿÿ8ƒæú¿‰/
+Z	java:S1062"9Replace this use of System.out or System.err by a logger.(Î’Çâÿÿÿÿÿ8ƒæú¿‰/

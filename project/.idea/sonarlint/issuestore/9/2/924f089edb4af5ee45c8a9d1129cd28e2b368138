@@ -1,12 +1,12 @@
 
-N	java:S106"9Replace this use of System.out or System.err by a logger.(¾è–Æ
-U	java:S106"9Replace this use of System.out or System.err by a logger.(Ñ“Çî8İÔŠ¢‰/
 y
 java:S3008"WRename this field "LOGIN_FAILED" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æ¢şÌúÿÿÿÿ8İÔŠ¢‰/
+U	java:S106"9Replace this use of System.out or System.err by a logger.(Ñ“Çî8İÔŠ¢‰/
+Z	java:S106#"9Replace this use of System.out or System.err by a logger.(Îß“çøÿÿÿÿ8İÔŠ¢‰/
+S	java:S106!"9Replace this use of System.out or System.err by a logger.(Øëÿœıÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Ã¬¥Àúÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(¾è–Æ
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(Ù©Çûÿÿÿÿ8İÔŠ¢‰/
+S	java:S106"9Replace this use of System.out or System.err by a logger.(³Ñ²Áûÿÿÿÿ
 L
 java:S5411 "*Use the primitive boolean expression here.(åõ¿üıÿÿÿÿ8İÔŠ¢‰/
-S	java:S106"9Replace this use of System.out or System.err by a logger.(³Ñ²Áûÿÿÿÿ
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(Ù©Çûÿÿÿÿ8İÔŠ¢‰/
-S	java:S106!"9Replace this use of System.out or System.err by a logger.(Øëÿœıÿÿÿÿ
-Z	java:S106#"9Replace this use of System.out or System.err by a logger.(Îß“çøÿÿÿÿ8İÔŠ¢‰/
-S	java:S106"9Replace this use of System.out or System.err by a logger.(Ã¬¥Àúÿÿÿÿ
