@@ -6,8 +6,7 @@ public class Main {
 
     private static String LOGIN_FAILED = "LOGIN_FAILED";
 
-    public static void main(String [] args)
-    {
+    public static void main(String [] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to Group 18's DBMS Project. Please select an option");
         System.out.println("1. Login" +"\n"

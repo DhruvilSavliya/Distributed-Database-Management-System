@@ -45,9 +45,9 @@ public class DDLQueryExecution {
                 columnMap.put(column[0], column[1]);
             }
             if (updateDictionary(tableName, username, columnMap)) {
-                File tableFile = new File("project/Data/"+username+"_"+tableName+".txt");
+                File tableFile = new File("Data/"+username+"_"+tableName+".txt");
                 if (tableFile.createNewFile()) {
-                    eventLogsWriter.append("[Table created] User: "+username+", Table: "+tableName);
+                    eventLogsWriter.append("[Table created] User: "+username+", Table: "+tableName+"\n");
                     System.out.println("Table created!");
                 } else {
                     System.out.println("Error in table creation! Please try again!");
@@ -60,7 +60,7 @@ public class DDLQueryExecution {
     }
 
     private Boolean updateDictionary(String tableName, String username, Map<String, String> columnMap) throws IOException{
-        File userTables = new File("project/Data/UserTableDictionary.txt");
+        File userTables = new File("Data/UserTableDictionary.txt");
         if (userTables.createNewFile()) {
             FileWriter userTableWriter = new FileWriter(userTables, true);
             String userRow = username;
@@ -110,10 +110,6 @@ public class DDLQueryExecution {
         return true;
     }
 
-    public void insertTable(Matcher inserttable, String username){
-
-    }
-
     public void dropTable(Matcher dropMatcher, String userName)
     {
         try {
@@ -135,7 +131,7 @@ public class DDLQueryExecution {
                 }
             }
             if (removeFromDictionary(tableName, userName)) {
-                eventFile.write("[Table Dropped] Table : "+tableName+" User : "+userName);
+                eventFile.write("[Table Dropped] Table : "+tableName+" User : "+userName+"\n");
                 System.out.println("Table dropped!");
             } else {
                 System.out.println("Failed to drop table.");
@@ -150,8 +146,8 @@ public class DDLQueryExecution {
     {
         Boolean returnFlag = false;
         try {
-            File userTables = new File("project/Data/UserTableDictionary.txt");
-            File tempFile = new File("project/Data/tempFile.txt");
+            File userTables = new File("Data/UserTableDictionary.txt");
+            File tempFile = new File("Data/tempFile.txt");
             BufferedReader bufferedReader = new BufferedReader(new FileReader(userTables));
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(tempFile));
 
@@ -187,7 +183,7 @@ public class DDLQueryExecution {
             }
             bufferedReader.close();
             bufferedWriter.close();
-            File tableFile = new File("project/Data/"+username+"_"+tableName+".txt");
+            File tableFile = new File("Data/"+username+"_"+tableName+".txt");
             tableFile.delete();
             userTables.delete();
             tempFile.renameTo(userTables);

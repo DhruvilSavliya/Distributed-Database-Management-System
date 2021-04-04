@@ -11,3 +11,8 @@ demo3
 ;name
 (id;int
 
+dhr
+student
+;name
+(id;int
+

@@ -1,6 +1,5 @@
 import DDL.DDLQueryExecution;
 import DML.DMLQueryExecution;
-import DQL.DQLQueryExecution;
 
 import java.io.*;
 import java.util.*;
@@ -8,22 +7,16 @@ import java.util.regex.*;
 
 public class Parser {
 
-//    final String selectRegex = "(?i)(SELECT)\\s[(\\s\\S)+]+\\sFROM\\s(\\w{1,})\\sWHERE\\s(\\w{1,}..\\w{1,}..*;)";
-//    final String insertRegex = "(?i)(INSERT)\\sINTO\\s\\w{1,}+\\sVALUES\\s.([\\s\\S]+);";
-//    final String deleteRegex = "(?i)(DELETE)\\sFROM\\s(\\w{1,})\\sWHERE\\s(\\w{1,}..\\w{1,}..*;)";
-//    final String createTableRegex = "(?i)(CREATE)\\sTABLE\\s\\w{1,}\\s([\\s\\S]+)+;";
-//    final String dropTableRegex = "^(DROP)\\sTABLE\\s(\\w{1,}+);";
+
 
     final String selectRegex = "(SELECT)\\s+(\\*|[\\w{1,}]+)\\s+FROM\\s+([\\w]+)\\s*( WHERE\\s+([\\S]+))?;";
-    final String insertRegex = "(?i)(INSERT)\\sINTO\\s\\w{1,}+\\sVALUES\\s.([\\s\\S]+);";
-    final String deleteRegex = "(?i)(DELETE)\\sFROM\\s(\\w{1,})\\sWHERE\\s(\\w{1,}..\\w{1,}..*;)";
+    final String insertRegex = "(?i)(INSERT\\sINTO\\s+(\\w+)\\s+\\(([\\s\\S]+)\\)\\s+VALUES\\s+\\(([\\s\\S]+)\\);)";
+    final String deleteRegex = "^DELETE\\sFROM\\s\\w{1,}\\sWHERE\\s.*";
     final String createTableRegex = "(?i)(CREATE)\\sTABLE\\s\\w{1,}\\s([\\s\\S]+)+;";
     final String dropTableRegex = "^(DROP)\\sTABLE\\s(\\w{1,}+);";
     final String updateTableRegex ="(UPDATE)\\s+([\\w]+)\\s+SET\\s+([\\S]+)\\s*( WHERE\\s+([\\S]+))?;";
 
-
-    public void userInput(String username) throws Exception
-    {
+    public void userInput(String username) throws Exception {
         final Pattern selectPattern = Pattern.compile(selectRegex);
         final Pattern insertPattern = Pattern.compile(insertRegex);
         final Pattern deletePattern = Pattern.compile(deleteRegex);
@@ -43,7 +36,7 @@ public class Parser {
         final Matcher updateTableMatcher = updateTablePattern.matcher(queryInput);
 
         DDLQueryExecution ddlQueryExecution = new DDLQueryExecution();
-        DQLQueryExecution dqlQueryExecution=new DQLQueryExecution();
+//        DQLQueryExecution dqlQueryExecution=new DQLQueryExecution();
         DMLQueryExecution dmlQueryExecution=new DMLQueryExecution();
 
         FileWriter myFile = new FileWriter("queryParsing.txt");
@@ -58,18 +51,21 @@ public class Parser {
             String columns = selectMatcher.group(2);
             String tableName = selectMatcher.group(3);
             String conditions = selectMatcher.group(5);
-            dqlQueryExecution.selectTable(username,type,columns,tableName,conditions);
+//            dqlQueryExecution.selectTable(username,type,columns,tableName,conditions);
             // Select methode code goes here
         }else if(insertMatcher.find())
         {
-            myFile.append("[Insert query] ").append(queryInput).append("\n");
+            myFile.append("[Insert query]").append(queryInput).append("\n");
             myFile.flush();
+            dmlQueryExecution.insert(insertMatcher, username, eventfile, generalfile);
             // insert methode code goes here
         }else if(deleteMatcher.find())
         {
             myFile.append("[Delete query] ").append(queryInput).append("\n");
             myFile.flush();
             // delete methode code goes here
+            dmlQueryExecution.delete(deleteMatcher, username, eventfile, generalfile);
+
         }else if(createTableMatcher.find())
         {
             myFile.append("[Create table query] ").append(queryInput).append("\n");
