@@ -1,1 +1,1 @@
-[Select query] SELECT * FROM users WHERE Name=Tom;
+[Drop table query] DROP TABLE test;

@@ -1,1 +1,2 @@
 [Table created] User: dhr, Table: student[dhr] Inserted successfully
+[Table created] User: neeh, Table: test

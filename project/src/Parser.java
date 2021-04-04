@@ -77,6 +77,7 @@ public class Parser {
             myFile.append("[Drop table query] ").append(queryInput).append("\n");
             myFile.flush();
             // Drop table methode code goes here
+            ddlQueryExecution.dropTable(dropTableMatcher, username);
 
         }else if(updateTableMatcher.find())
         {
