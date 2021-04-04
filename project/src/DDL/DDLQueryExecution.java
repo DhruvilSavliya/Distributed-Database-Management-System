@@ -1,14 +1,9 @@
 package DDL;
 
-import com.jcraft.jsch.Channel;
-import com.jcraft.jsch.ChannelSftp;
-import com.jcraft.jsch.JSch;
-import com.jcraft.jsch.Session;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 import java.util.regex.Matcher;
 
 public class DDLQueryExecution {
@@ -212,7 +207,7 @@ public class DDLQueryExecution {
         return returnFlag;
     }
 
-    private void connectToGcp()
+    /*private void connectToGcp()
     {
         try {
             FileReader fileReader = new FileReader("Data/GcpConf.txt");
@@ -259,5 +254,5 @@ public class DDLQueryExecution {
 //            System.out.println("Exception : "+e.getMessage());
             e.printStackTrace();
         }
-    }
+    }*/
 }
