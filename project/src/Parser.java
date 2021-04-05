@@ -1,5 +1,6 @@
 import DDL.DDLQueryExecution;
 import DML.DMLQueryExecution;
+import DQL.DQLQueryExecution;
 
 import java.io.*;
 import java.util.*;
@@ -36,7 +37,7 @@ public class Parser {
         final Matcher updateTableMatcher = updateTablePattern.matcher(queryInput);
 
         DDLQueryExecution ddlQueryExecution = new DDLQueryExecution();
-//        DQLQueryExecution dqlQueryExecution=new DQLQueryExecution();
+        DQLQueryExecution dqlQueryExecution=new DQLQueryExecution();
         DMLQueryExecution dmlQueryExecution=new DMLQueryExecution();
 
         FileWriter myFile = new FileWriter("queryParsing.txt");
@@ -89,6 +90,10 @@ public class Parser {
             String conditions = updateTableMatcher.group(5);
             // Drop table methode code goes here
             dmlQueryExecution.updateTable(username,updateOperations,tableName,conditions);
+        }else if (queryInput.equalsIgnoreCase("dump"))
+        {
+            myFile.append("[Dump][").append(username).append("] ").append(queryInput).append("\n");
+            dqlQueryExecution.dump(username);
         }else
         {
             System.out.println("Invalid SQL syntax .Please check your query ");

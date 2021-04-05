@@ -1,1 +1,1 @@
-[Create table query] CREATE TABLE test2 (id int);
+[Dump][tanuj] dump
