@@ -1,1 +1,1 @@
-[Select query] SELECT * FROM users WHERE Name=Tom;
+[Delete query] DELETE FROM student WHERE sid=5;

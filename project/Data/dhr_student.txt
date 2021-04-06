@@ -1,9 +1,5 @@
-sid 1
+sid 4
 sname dhr
 
-sid 2
+sid 6
 sname dhr
-
-sid 3
-sname tanuj
-
