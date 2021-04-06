@@ -4,7 +4,6 @@ package DML;
 import Locking.Locker;
 
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
@@ -67,8 +66,8 @@ public class DMLQueryExecution {
 
     }
 
-    public void delete(Matcher delete, String username, FileWriter eventfile, FileWriter generalfile) throws IOException
-    {
+    public void delete(Matcher delete, String username, FileWriter eventfile, FileWriter generalfile) throws IOException {
+
         String query = delete.group(0);
         String[] querywords = query.split(" ");
         String TableName = querywords[2];
@@ -77,16 +76,16 @@ public class DMLQueryExecution {
             return;
         }
         File file = new File("Data/" + username + "_" + TableName + ".txt");
-        File fold = new File("Data/updated.txt");
-        File fnew = new File("Data/" + username + "_" + TableName + ".txt");
+
         boolean file_exist = file.exists();
-        if (file_exist) {
+        if (file_exist)
+        {
+            long StartTime = System.currentTimeMillis();
             String condition = querywords[4];
             String[] columnandvalue = condition.split("=|;");
             String col = columnandvalue[0];
             String value = columnandvalue[1];
 
-            FileReader fileReader = new FileReader(file);
             Scanner scanner = new Scanner(file);
             File tempfile = new File("Data/temp.txt");
             tempfile.createNewFile();
@@ -94,57 +93,75 @@ public class DMLQueryExecution {
             File updatedtable = new File("Data/updated.txt");
             updatedtable.createNewFile();
             FileWriter fw = new FileWriter(updatedtable);
-            while (scanner.hasNextLine()) {
+            while (scanner.hasNextLine())
+            {
                 String line = scanner.nextLine();
-                if (line == "") {
-                    continue;
-                } else {
+                if (line == "")
+                {
+                    fw.append("\n");
+                    System.out.println("");
+                }
+                else
+                    {
                     String[] s = line.split(" ");
-                    if (s[0].equalsIgnoreCase(col) && s[1].equalsIgnoreCase(value)) {
+                    if (s[0].equalsIgnoreCase(col) && s[1].equalsIgnoreCase(value))
+                    {
                         while (scanner.hasNextLine()) {
                             fileWriter.write(s[0] + " " + s[1]);
-                            if (scanner.nextLine() == "") {
+                            if (scanner.nextLine() == "")
+                            {
                                 break;
                             }
                         }
-                    } else if (s[0] != col && s[1] != value) {
-                        fw.write(s[0] + " " + s[1]);
-                        fw.append("\n");
-                    } else {
+                    }
+                    else if (s[0] != col && s[1] != value)
+                    {
+                        fw.write(line + "\n");
+                        System.out.println(line);
+
+                    }
+                    else
+                        {
                         System.out.println("record not found");
                     }
 
                 }
 
+
             }
+            System.out.println("deletion performed successfully");
             fileWriter.close();
             fw.close();
+            scanner.close();
+            file.delete();
+            updatedtable.renameTo(file);
 
-            if (tempfile.delete()) {
+            if (tempfile.delete())
+            {
                 eventfile.append("[").append(username).append("] Temp file deleted.").append("\n");
             }
+            long EndTime = System.currentTimeMillis();
+            long TotalTime = EndTime - StartTime;
+            generalfile.append("[").append(username).append("] [Total time] [Delete Query]").append(String.valueOf(TotalTime)).append(" milliseconds\n");
+            eventfile.append("[").append(username).append("] Record deleted successfully").append("\n");
 
-        } else {
+        }
+        else
+            {
             System.out.println("Table does not exist to perform delete.");
             eventfile.append("[").append(username).append("] Table does not exist to perform delete.").append("\n");
 
-        }
-        if (file.delete()) {
-            System.out.println("deleted");
-        }
-
-        if (fold.renameTo(fnew)) {
-            System.out.println("renamed");
         }
         if (!locker.removeLock(username, TableName)) {
             System.out.println("Failed to remove lock on table");
             return;
         }
+        generalfile.close();
+        eventfile.close();
 
     }
 
-    public void updateTable(String username,String updateOperations,String tableName,String conditions)
-    {
+    public void updateTable(String username, String updateOperations, String tableName, String conditions) {
         if (!locker.obtainLock(username, tableName)) {
             System.out.println("Failed to obtain lock on table");
             return;
