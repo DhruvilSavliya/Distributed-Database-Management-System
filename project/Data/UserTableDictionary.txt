@@ -1,4 +1,4 @@
-neeh
+tanuj
 demo
 name;varchar(10)
 
@@ -15,4 +15,8 @@ dhr
 student
 ;name
 (id;int
+
+neeh
+test1
+id;int
 

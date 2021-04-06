@@ -1,7 +1,10 @@
 package DQL;
 
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -66,4 +69,34 @@ public class DQLQueryExecution {
         }
 
     }
+
+
+
+    public void dump(String username) {
+
+
+        try {
+            File dataDictionary = new File("Data/UserTableDictionary.txt");
+            FileReader readDictionary = new FileReader(dataDictionary);
+            BufferedReader bufferedReader = new BufferedReader(readDictionary);
+            File dumpfile = new File(username + "_data_dump.txt");
+            FileWriter writeFile = new FileWriter(dumpfile, true);
+            String readLine = bufferedReader.readLine();
+            if (readLine.equalsIgnoreCase(username)) {
+                readLine = bufferedReader.readLine();
+                while (!readLine.isBlank()) {
+                    writeFile.write(readLine);
+                    writeFile.write("\n");
+                    readLine = bufferedReader.readLine();
+                }
+                writeFile.write("\n");
+            }
+            bufferedReader.close();
+            writeFile.close();
+            readDictionary.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

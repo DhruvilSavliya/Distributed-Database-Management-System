@@ -1,6 +1,8 @@
 package DML;
 
 
+import Locking.Locker;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,9 +16,15 @@ import java.util.regex.Matcher;
 
 public class DMLQueryExecution {
 
+    Locker locker = new Locker();
+
     public void insert(Matcher insert, String username, FileWriter eventfile, FileWriter generalfile) throws IOException {
         String TableName, first, second;
         TableName = insert.group(2);
+        if (!locker.obtainLock(username, TableName)) {
+            System.out.println("Failed to obtain lock on table");
+            return;
+        }
         File file = new File("Data/" + username + "_" + TableName + ".txt");
         boolean file_exist = file.exists();
         if (file_exist) {
@@ -51,6 +59,10 @@ public class DMLQueryExecution {
         }
         eventfile.close();
         generalfile.close();
+        if (!locker.removeLock(username, TableName)) {
+            System.out.println("Failed to remove lock on table");
+            return;
+        }
 
     }
 
@@ -59,6 +71,10 @@ public class DMLQueryExecution {
         String query = delete.group(0);
         String[] querywords = query.split(" ");
         String TableName = querywords[2];
+        if (!locker.obtainLock(username, TableName)) {
+            System.out.println("Failed to obtain lock on table");
+            return;
+        }
         File file = new File("Data/" + username + "_" + TableName + ".txt");
 
         boolean file_exist = file.exists();
@@ -136,42 +152,54 @@ public class DMLQueryExecution {
             eventfile.append("[").append(username).append("] Table does not exist to perform delete.").append("\n");
 
         }
+        if (!locker.removeLock(username, TableName)) {
+            System.out.println("Failed to remove lock on table");
+            return;
+        }
         generalfile.close();
         eventfile.close();
 
     }
 
     public void updateTable(String username, String updateOperations, String tableName, String conditions) {
+        if (!locker.obtainLock(username, tableName)) {
+            System.out.println("Failed to obtain lock on table");
+            return;
+        }
         String[] updateOperationsArray = updateOperations.trim().split("=");
         String[] conditionsArray = conditions.trim().split("=");
         try {
             File myObj = new File("Data/" + username + "_" + tableName + ".txt");
             Scanner myReader = new Scanner(myObj);
             String s = "";
-            Map<String, String> keyValue = new HashMap<String, String>();
+            Map<String,String> keyValue = new HashMap<String,String>();
             String nextLine;
-            while (myReader.hasNextLine()) {
+            while (myReader.hasNextLine())
+            {
                 nextLine = myReader.nextLine();
 
-                while (nextLine.trim().length() > 0) {
+                while( nextLine.trim().length() > 0 ) {
                     String[] row = nextLine.trim().split(" ");
                     keyValue.put(row[0], row[1]);
-                    if (myReader.hasNextLine()) {
+                    if(myReader.hasNextLine()) {
                         nextLine = myReader.nextLine();
                     } else {
                         nextLine = "";
                     }
                 }
 
-                if (nextLine.trim().length() == 0) {
+                if(nextLine.trim().length() == 0)
+                {
                     String value = keyValue.get(conditionsArray[0]);
-                    if (value.trim().equalsIgnoreCase(conditionsArray[1].trim())) {
+                    if(value.trim().equalsIgnoreCase(conditionsArray[1].trim()))
+                    {
                         keyValue.put(updateOperationsArray[0], updateOperationsArray[1]);
                     }
                     Iterator<String> iterator = keyValue.keySet().iterator();
-                    while (iterator.hasNext()) {
+                    while(iterator.hasNext())
+                    {
                         String key = iterator.next();
-                        s = s + key + " " + keyValue.get(key) + "\n";
+                        s = s + key + " " + keyValue.get(key) +"\n";
                     }
 
                     s = s + "\n";
@@ -179,11 +207,16 @@ public class DMLQueryExecution {
             }
             myReader.close();
             System.out.println(s);
-            FileWriter myfile = new FileWriter("Data/" + username + "_" + tableName + ".txt");
+            FileWriter myfile=new FileWriter("Data/" + username + "_" + tableName + ".txt");
             myfile.write(s);
             myfile.flush();
             myfile.close();
-        } catch (Exception e) {
+            if (!locker.removeLock(username, tableName)) {
+                System.out.println("Failed to remove lock on table");
+                return;
+            }
+        }catch(Exception e)
+        {
             e.printStackTrace();
         }
     }
