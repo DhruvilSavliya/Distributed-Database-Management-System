@@ -6,3 +6,7 @@
 [Table created] User: neeh, Table: parent2
 [Table created] User: neeh, Table: child2
 [Table created] User: neeh, Table: pkTest
+[Table created] User: neeh, Table: test4
+[Createa query] Execution time : 25 milli-seconds[Table created] User: neeh, Table: test5
+[Createa query] Execution time : 5170 milli-seconds[Table created] User: neeh, Table: test6
+[Create query] Execution time : 82579 milli-seconds

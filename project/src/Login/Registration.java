@@ -14,7 +14,7 @@ public class Registration{
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please choose a Username");
         String username = scanner.next();
-        System.out.println("Please chosse a password");
+        System.out.println("Please choose a password");
         String password = scanner.next();
         try {
             File users = new File("Data/Users.txt");
