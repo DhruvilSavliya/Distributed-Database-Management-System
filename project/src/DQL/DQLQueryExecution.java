@@ -5,10 +5,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 
 public class DQLQueryExecution {
@@ -95,6 +92,38 @@ public class DQLQueryExecution {
             writeFile.close();
             readDictionary.close();
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void generateERD(String username) {
+
+        try {
+            FileReader fileReader = new FileReader("Data/UserTableDictionary.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            List<String> dataColumns = new ArrayList<String>();
+            String s = "";
+            String line="";
+            while( (line=bufferedReader.readLine())!=null) {
+                dataColumns.add(line);
+                System.out.println(line);
+            }
+            for( int i=0; i<dataColumns.size(); i++)
+                {
+                if (dataColumns.get(i).contains("fk"))
+                {
+                    s = s + dataColumns.get(i) +"\n";
+                }
+                }
+            bufferedReader.close();
+            System.out.println(s);
+            FileWriter myfile=new FileWriter("Data/" + username +"_ERD.txt");
+            myfile.write(s);
+            myfile.flush();
+            myfile.close();
+        }catch(Exception e)
+        {
             e.printStackTrace();
         }
     }

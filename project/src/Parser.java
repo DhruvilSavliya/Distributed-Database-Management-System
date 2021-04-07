@@ -84,16 +84,20 @@ public class Parser {
         {
             myFile.append("[Update table query] ").append(queryInput).append("\n");
             myFile.flush();
-            String operation = updateTableMatcher.group(1);
+            String type = updateTableMatcher.group(1);
             String tableName = updateTableMatcher.group(2);
-            String updateOperations = updateTableMatcher.group(3);
-            String conditions = updateTableMatcher.group(5);
+            String updateCondition = updateTableMatcher.group(3);
+            String whereCondition = updateTableMatcher.group(5);
             // Drop table methode code goes here
-            dmlQueryExecution.updateTable(username,updateOperations,tableName,conditions);
+            dmlQueryExecution.updateTable(username,updateCondition,tableName,whereCondition);
         }else if (queryInput.equalsIgnoreCase("dump"))
         {
             myFile.append("[Dump][").append(username).append("] ").append(queryInput).append("\n");
             dqlQueryExecution.dump(username);
+        }else if (queryInput.equalsIgnoreCase("ERD"))
+        {
+            myFile.append("[ERD][").append(username).append("] ").append(queryInput).append("\n");
+            dqlQueryExecution.generateERD(username);
         }else
         {
             System.out.println("Invalid SQL syntax .Please check your query ");
