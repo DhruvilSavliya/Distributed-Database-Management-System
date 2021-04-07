@@ -13,6 +13,7 @@ demo3
 
 dhr
 student
+sid;int;pk
 ;name
 (id;int
 
