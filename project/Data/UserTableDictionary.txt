@@ -42,3 +42,12 @@ neeh
 pkTest
 id;int
 
+Demonstration
+employee
+name;varchar
+id;int;pk
+
+Demonstration
+salary
+amount;int
+employeeid;int;fk;employee;id

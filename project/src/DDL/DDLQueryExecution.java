@@ -71,12 +71,20 @@ public class DDLQueryExecution {
                                 containsPk = true;
                             } else {
                                 System.out.println("More than one primary keys!");
+                                if (!locker.removeLock(username, tableName)) {
+                                    System.out.println("Failed to remove lock!");
+                                    return;
+                                }
                                 return;
                             }
                         }
                         else if (column[2].equalsIgnoreCase("fk")) {
                             if (!alterFk(column)) {
                                 System.out.println("Failed to alter foreign key! Check syntax or column name");
+                                if (!locker.removeLock(username, tableName)) {
+                                    System.out.println("Failed to remove lock!");
+                                    return;
+                                }
                                 return;
                             } else {
                                 column[1] = column[1]+";"+column[2]+";"+column[3]+";"+column[4];
@@ -86,6 +94,10 @@ public class DDLQueryExecution {
                     columnMap.put(column[0], column[1]);
                 } else {
                     System.out.println("Invalid Datatype! Supported datatypes : int, varchar, boolean");
+                    if (!locker.removeLock(username, tableName)) {
+                        System.out.println("Failed to remove lock!");
+                        return;
+                    }
                     return;
                 }
             }
@@ -129,9 +141,6 @@ public class DDLQueryExecution {
                                     System.out.println("This column is not primary key!");
                                     return false;
                                 }
-                            } else {
-                                System.out.println("This column is not primary key!");
-                                return false;
                             }
                         }
                     }
