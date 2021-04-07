@@ -84,12 +84,24 @@ public class DMLQueryExecution {
 
                                         for (String s : column1)
                                         {
-                                            if (ListOfColums.get(index).equalsIgnoreCase(s)) {
+                                            if (ListOfValues.get(index).equalsIgnoreCase(s)) {
                                                 System.out.println("Duplicate value exists while entering in primary key column!");
+                                                if (!locker.removeLock(username, TableName)) {
+                                                    System.out.println("Failed to remove lock on table");
+                                                    return;
+                                                }
                                                 return;
-
                                             }
                                         }
+                                        FileWriter fileWriter = new FileWriter(file, true);
+
+                                        int length = ListOfColums.size();
+                                        for (int i = 0; i < length; i++) {
+                                            fileWriter.write(ListOfColums.get(i) + " " + ListOfValues.get(i) + "\n");
+                                        }
+                                        fileWriter.write("\n");
+                                        fileWriter.close();
+                                        System.out.println("Inserted Successfully");
                                     }
                                     else
                                     {
@@ -118,6 +130,7 @@ public class DMLQueryExecution {
                         }
                         br.close();
                         fr.close();
+                        break;
                     }
                 }
             }
