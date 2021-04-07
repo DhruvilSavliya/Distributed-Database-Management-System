@@ -1,3 +1,8 @@
 [Table created] User: dhr, Table: student[dhr] Inserted successfully
 [Table created] User: neeh, Table: test
 [Table created] User: neeh, Table: test1
+[Table created] User: neeh, Table: parent
+[Table created] User: neeh, Table: child
+[Table created] User: neeh, Table: parent2
+[Table created] User: neeh, Table: child2
+[Table created] User: neeh, Table: pkTest

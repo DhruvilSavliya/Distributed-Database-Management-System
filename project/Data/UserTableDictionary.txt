@@ -20,3 +20,24 @@ neeh
 test1
 id;int
 
+neeh
+parent
+id;int;pk
+
+neeh
+child
+childid;int;fk;parent;id
+
+neeh
+parent2
+parentId;int;pk
+
+neeh
+child2
+childId2;int;fk;parent2;parentId
+name;varchar
+
+neeh
+pkTest
+id;int
+

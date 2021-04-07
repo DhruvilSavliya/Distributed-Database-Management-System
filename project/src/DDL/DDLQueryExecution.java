@@ -24,7 +24,9 @@ public class DDLQueryExecution {
             Boolean tableNameFound = false;
             String tableName="";
             String columns = "";
+            Boolean containsPk = false;
 //            connectToGcp();
+            //Parsing logic
             int i=0;
             for (i=0; i<queryWords.length; i++)
             {
@@ -62,6 +64,25 @@ public class DDLQueryExecution {
                     }
                 }
                 if (validDatatype) {
+                    if (column.length>2) {
+                        if (column[2].equalsIgnoreCase("pk")) {
+                            if (!containsPk) {
+                                column[1] = column[1] + ";pk";
+                                containsPk = true;
+                            } else {
+                                System.out.println("More than one primary keys!");
+                                return;
+                            }
+                        }
+                        else if (column[2].equalsIgnoreCase("fk")) {
+                            if (!alterFk(column)) {
+                                System.out.println("Failed to alter foreign key! Check syntax or column name");
+                                return;
+                            } else {
+                                column[1] = column[1]+";"+column[2]+";"+column[3]+";"+column[4];
+                            }
+                        }
+                    }
                     columnMap.put(column[0], column[1]);
                 } else {
                     System.out.println("Invalid Datatype! Supported datatypes : int, varchar, boolean");
@@ -85,6 +106,42 @@ public class DDLQueryExecution {
         } catch (Exception e) {
             System.out.println("[DDLQueryExecution] Exception in application : "+e.getMessage());
         }
+    }
+
+    private Boolean alterFk(String [] column) {
+        if (column.length != 5) {
+            return false;
+        }
+        try {
+            FileReader fileReader = new FileReader("Data/UserTableDictionary.txt");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String currentLine;
+            while ((currentLine = bufferedReader.readLine()) != null) {
+                if (!currentLine.isBlank()) {
+                    if (currentLine.equals(column[3])) {
+                        while (!currentLine.isBlank()) {
+                            currentLine = bufferedReader.readLine();
+                            String [] tableColumns = currentLine.split(";");
+                            if (tableColumns.length > 2 && tableColumns[0].equals(column[4])) {
+                                if (tableColumns[2].equalsIgnoreCase("pk")) {
+                                    return true;
+                                } else {
+                                    System.out.println("This column is not primary key!");
+                                    return false;
+                                }
+                            } else {
+                                System.out.println("This column is not primary key!");
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Exception in altering FK : "+e.getMessage());
+            return false;
+        }
+        return false;
     }
 
     private Boolean updateDictionary(String tableName, String username, Map<String, String> columnMap) throws IOException{
