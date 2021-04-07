@@ -1,1 +1,1 @@
-[Dump][tanuj] dump
+[Create table query] CREATE TABLE multi (id int pk,id2 int pk);
