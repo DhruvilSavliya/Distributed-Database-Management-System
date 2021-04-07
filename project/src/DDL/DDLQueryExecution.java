@@ -282,52 +282,52 @@ public class DDLQueryExecution {
         return returnFlag;
     }
 
-    /*private void connectToGcp()
-    {
-        try {
-            FileReader fileReader = new FileReader("Data/GcpConf.txt");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String ip = bufferedReader.readLine();
-            String username = bufferedReader.readLine();
-            String password = bufferedReader.readLine();
-            bufferedReader.close();
-            FileReader privateKeyFile = new FileReader("Data/PrivateKey.txt");
-            BufferedReader privateBufferedReader = new BufferedReader(privateKeyFile);
-            String privateKey = "";
-            String privateKeyReader = privateBufferedReader.readLine();
-            while (privateKeyReader != null)
-            {
-                privateKey += privateKeyReader;
-                privateKeyReader = privateBufferedReader.readLine();
-            }
-            JSch jSch = new JSch();
-            jSch.addIdentity("C:/5408Project/csci-5408-group-18/project/Data/id_rsa_private");
-            Session session = jSch.getSession(username, ip);
-            Properties properties = new Properties();
-            properties.put("StrictHostKeyChecking", "no");
-//            properties.put("PreferredAuthentications", password);
-            session.setConfig(properties);
-            session.setPassword(password);
-
-            Channel channel = session.openChannel("sftp");
-            channel.connect();
-            ChannelSftp channelSftp = (ChannelSftp) channel;
-            InputStream inputStream = channelSftp.get("/project/Data/Hello.txt");
-            BufferedReader inputReader = new BufferedReader(new InputStreamReader(inputStream));
-            String readLine = "";
-            while ((readLine = inputReader.readLine()) != null)
-            {
-                System.out.println(readLine);
-            }
-            inputReader.close();
-            privateBufferedReader.close();
-            fileReader.close();
-            channelSftp.exit();
-            session.disconnect();
-        } catch (Exception e)
-        {
-//            System.out.println("Exception : "+e.getMessage());
-            e.printStackTrace();
-        }
-    }*/
+//    private void connectToGcp()
+//    {
+//        try {
+//            FileReader fileReader = new FileReader("Data/GcpConf.txt");
+//            BufferedReader bufferedReader = new BufferedReader(fileReader);
+//            String ip = bufferedReader.readLine();
+//            String username = bufferedReader.readLine();
+//            String password = bufferedReader.readLine();
+//            bufferedReader.close();
+//            FileReader privateKeyFile = new FileReader("Data/PrivateKey.txt");
+//            BufferedReader privateBufferedReader = new BufferedReader(privateKeyFile);
+//            String privateKey = "";
+//            String privateKeyReader = privateBufferedReader.readLine();
+//            while (privateKeyReader != null)
+//            {
+//                privateKey += privateKeyReader;
+//                privateKeyReader = privateBufferedReader.readLine();
+//            }
+//            JSch jSch = new JSch();
+//            jSch.addIdentity("C:/5408Project/csci-5408-group-18/project/Data/id_rsa_private");
+//            Session session = jSch.getSession(username, ip);
+//            Properties properties = new Properties();
+//            properties.put("StrictHostKeyChecking", "no");
+////            properties.put("PreferredAuthentications", password);
+//            session.setConfig(properties);
+//            session.setPassword(password);
+//
+//            Channel channel = session.openChannel("sftp");
+//            channel.connect();
+//            ChannelSftp channelSftp = (ChannelSftp) channel;
+//            InputStream inputStream = channelSftp.get("/project/Data/Hello.txt");
+//            BufferedReader inputReader = new BufferedReader(new InputStreamReader(inputStream));
+//            String readLine = "";
+//            while ((readLine = inputReader.readLine()) != null)
+//            {
+//                System.out.println(readLine);
+//            }
+//            inputReader.close();
+//            privateBufferedReader.close();
+//            fileReader.close();
+//            channelSftp.exit();
+//            session.disconnect();
+//        } catch (Exception e)
+//        {
+////            System.out.println("Exception : "+e.getMessage());
+//            e.printStackTrace();
+//        }
+//    }
 }
