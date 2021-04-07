@@ -4,6 +4,7 @@ import DQL.DQLQueryExecution;
 
 import java.io.*;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.*;
 
 public class Parser {
@@ -58,28 +59,50 @@ public class Parser {
         {
             myFile.append("[Insert query]").append(queryInput).append("\n");
             myFile.flush();
+            Long beforeTime = System.nanoTime();
             dmlQueryExecution.insert(insertMatcher, username, eventfile, generalfile);
+            Long afterTime = System.nanoTime();
+            Long timeElapsed = afterTime-beforeTime;
+            timeElapsed = TimeUnit.NANOSECONDS.toMillis(timeElapsed);
+            eventfile.append("[Insert query] Execution time : "+timeElapsed+" milli-seconds");
+            eventfile.flush();
             // insert methode code goes here
         }else if(deleteMatcher.find())
         {
             myFile.append("[Delete query] ").append(queryInput).append("\n");
             myFile.flush();
+            Long beforeTime = System.nanoTime();
             // delete methode code goes here
             dmlQueryExecution.delete(deleteMatcher, username, eventfile, generalfile);
-
+            Long afterTime = System.nanoTime();
+            Long timeElapsed = afterTime-beforeTime;
+            timeElapsed = TimeUnit.NANOSECONDS.toMillis(timeElapsed);
+            eventfile.append("[Delete query] Execution time : "+timeElapsed+" milli-seconds");
+            eventfile.flush();
         }else if(createTableMatcher.find())
         {
             myFile.append("[Create table query] ").append(queryInput).append("\n");
             myFile.flush();
+            Long beforeTime = System.nanoTime();
             // Create table methode code goes here
             ddlQueryExecution.createTable(createTableMatcher, username);
+            Long afterTime = System.nanoTime();
+            Long timeElapsed = afterTime-beforeTime;
+            timeElapsed = TimeUnit.NANOSECONDS.toMillis(timeElapsed);
+            eventfile.append("[Create query] Execution time : "+timeElapsed+" milli-seconds");
+            eventfile.flush();
         }else if(dropTableMatcher.find())
         {
             myFile.append("[Drop table query] ").append(queryInput).append("\n");
             myFile.flush();
+            Long beforeTime = System.nanoTime();
             // Drop table methode code goes here
             ddlQueryExecution.dropTable(dropTableMatcher, username);
-
+            Long afterTime = System.nanoTime();
+            Long timeElapsed = afterTime-beforeTime;
+            timeElapsed = TimeUnit.NANOSECONDS.toMillis(timeElapsed);
+            eventfile.append("[Drop query] Execution time : "+timeElapsed+" milli-seconds");
+            eventfile.flush();
         }else if(updateTableMatcher.find())
         {
             myFile.append("[Update table query] ").append(queryInput).append("\n");
@@ -88,16 +111,34 @@ public class Parser {
             String tableName = updateTableMatcher.group(2);
             String updateCondition = updateTableMatcher.group(3);
             String whereCondition = updateTableMatcher.group(5);
+            Long beforeTime = System.nanoTime();
             // Drop table methode code goes here
             dmlQueryExecution.updateTable(username,updateCondition,tableName,whereCondition);
+            Long afterTime = System.nanoTime();
+            Long timeElapsed = afterTime-beforeTime;
+            timeElapsed = TimeUnit.NANOSECONDS.toMillis(timeElapsed);
+            eventfile.append("[Update query] Execution time : "+timeElapsed+" milli-seconds");
+            eventfile.flush();
         }else if (queryInput.equalsIgnoreCase("dump"))
         {
             myFile.append("[Dump][").append(username).append("] ").append(queryInput).append("\n");
+            Long beforeTime = System.nanoTime();
             dqlQueryExecution.dump(username);
+            Long afterTime = System.nanoTime();
+            Long timeElapsed = afterTime-beforeTime;
+            timeElapsed = TimeUnit.NANOSECONDS.toMillis(timeElapsed);
+            eventfile.append("[Data dump] Execution time : "+timeElapsed+" milli-seconds");
+            eventfile.flush();
         }else if (queryInput.equalsIgnoreCase("ERD"))
         {
             myFile.append("[ERD][").append(username).append("] ").append(queryInput).append("\n");
+            Long beforeTime = System.nanoTime();
             dqlQueryExecution.generateERD(username);
+            Long afterTime = System.nanoTime();
+            Long timeElapsed = afterTime-beforeTime;
+            timeElapsed = TimeUnit.NANOSECONDS.toMillis(timeElapsed);
+            eventfile.append("[ERD] Execution time : "+timeElapsed+" milli-seconds");
+            eventfile.flush();
         }else
         {
             System.out.println("Invalid SQL syntax .Please check your query ");
