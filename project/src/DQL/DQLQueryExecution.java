@@ -24,7 +24,8 @@ public class DQLQueryExecution {
                 String s = "";
                 Map<String, String> readMap = new HashMap<String, String>();
                 String nextLine;
-                while (myReader.hasNextLine()) {
+                while (myReader.hasNextLine())
+                {
                     nextLine = myReader.nextLine();
 
                     while (nextLine.trim().length() > 0) {
@@ -45,12 +46,13 @@ public class DQLQueryExecution {
                             while (iterator.hasNext()) {
                                 String key = iterator.next();
                                 s = s + key + " " + readMap.get(key) + "\n";
-                                s = s + "\n";
-                                System.out.println(s);
+
                             }
+                            s = s + "\n";
                         }
                     }
                 }
+                System.out.println(s);
             }else{
                 while (myReader.hasNextLine())
                 {
@@ -70,8 +72,7 @@ public class DQLQueryExecution {
 
 
     public void dump(String username) {
-
-
+        
         try {
             File dataDictionary = new File("Data/UserTableDictionary.txt");
             FileReader readDictionary = new FileReader(dataDictionary);
@@ -107,7 +108,6 @@ public class DQLQueryExecution {
             String line="";
             while( (line=bufferedReader.readLine())!=null) {
                 dataColumns.add(line);
-                System.out.println(line);
             }
             for( int i=0; i<dataColumns.size(); i++)
                 {
@@ -117,7 +117,7 @@ public class DQLQueryExecution {
                 }
                 }
             bufferedReader.close();
-            System.out.println(s);
+            System.out.println("ERD has been generated successfully !!");
             FileWriter myfile=new FileWriter("Data/" + username +"_ERD.txt");
             myfile.write(s);
             myfile.flush();

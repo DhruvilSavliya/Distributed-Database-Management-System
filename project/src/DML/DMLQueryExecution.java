@@ -290,14 +290,14 @@ public class DMLQueryExecution {
                     while(iterator.hasNext())
                     {
                         String key = iterator.next();
-                        s = s + key + " " + keyValue.get(key) +"\n";
+                       s = s + key + " " + keyValue.get(key) +"\n";
                     }
 
                     s = s + "\n";
                 }
             }
             myReader.close();
-            System.out.println(s);
+            System.out.println("Records has been updated successfully in the table !!");
             FileWriter myfile=new FileWriter("Data/" + username + "_" + tableName + ".txt");
             myfile.write(s);
             myfile.flush();

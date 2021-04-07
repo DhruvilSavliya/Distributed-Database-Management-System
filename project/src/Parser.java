@@ -9,8 +9,6 @@ import java.util.regex.*;
 
 public class Parser {
 
-
-
     final String selectRegex = "(SELECT)\\s+(\\*|[\\w{1,}]+)\\s+FROM\\s+([\\w]+)\\s*( WHERE\\s+([\\S]+))?;";
     final String insertRegex = "(?i)(INSERT\\sINTO\\s+(\\w+)\\s+\\(([\\s\\S]+)\\)\\s+VALUES\\s+\\(([\\s\\S]+)\\);)";
     final String deleteRegex = "^DELETE\\sFROM\\s\\w{1,}\\sWHERE\\s.*";
@@ -53,7 +51,7 @@ public class Parser {
             String columns = selectMatcher.group(2);
             String tableName = selectMatcher.group(3);
             String conditions = selectMatcher.group(5);
-//            dqlQueryExecution.selectTable(username,type,columns,tableName,conditions);
+           dqlQueryExecution.selectTable(username,type,columns,tableName,conditions);
             // Select methode code goes here
         }else if(insertMatcher.find())
         {

@@ -9,4 +9,4 @@
 [Table created] User: neeh, Table: test4
 [Createa query] Execution time : 25 milli-seconds[Table created] User: neeh, Table: test5
 [Createa query] Execution time : 5170 milli-seconds[Table created] User: neeh, Table: test6
-[Create query] Execution time : 82579 milli-seconds
+[Create query] Execution time : 82579 milli-seconds[ERD] Execution time : 49 milli-seconds[Data dump] Execution time : 9 milli-seconds[Update query] Execution time : 66 milli-seconds[Update query] Execution time : 66 milli-seconds[Update query] Execution time : 67 milli-seconds[Update query] Execution time : 72 milli-seconds[ERD] Execution time : 47 milli-seconds[ERD] Execution time : 47 milli-seconds[ERD] Execution time : 45 milli-seconds[ERD] Execution time : 46 milli-seconds[ERD] Execution time : 54 milli-seconds[Data dump] Execution time : 8 milli-seconds[Data dump] Execution time : 8 milli-seconds
