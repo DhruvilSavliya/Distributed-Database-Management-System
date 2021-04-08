@@ -72,7 +72,7 @@ public class DQLQueryExecution {
 
 
     public void dump(String username) {
-        
+
         try {
             File dataDictionary = new File("Data/UserTableDictionary.txt");
             FileReader readDictionary = new FileReader(dataDictionary);

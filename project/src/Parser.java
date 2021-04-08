@@ -62,7 +62,7 @@ public class Parser {
             Long afterTime = System.nanoTime();
             Long timeElapsed = afterTime-beforeTime;
             timeElapsed = TimeUnit.NANOSECONDS.toMillis(timeElapsed);
-            eventfile.append("[Insert query] Execution time : "+timeElapsed+" milli-seconds");
+            eventfile.append("[Insert query] Execution time : "+timeElapsed+" milli-seconds\n");
             eventfile.flush();
             // insert methode code goes here
         }else if(deleteMatcher.find())
@@ -75,7 +75,7 @@ public class Parser {
             Long afterTime = System.nanoTime();
             Long timeElapsed = afterTime-beforeTime;
             timeElapsed = TimeUnit.NANOSECONDS.toMillis(timeElapsed);
-            eventfile.append("[Delete query] Execution time : "+timeElapsed+" milli-seconds");
+            eventfile.append("[Delete query] Execution time : "+timeElapsed+" milli-seconds\n");
             eventfile.flush();
         }else if(createTableMatcher.find())
         {
@@ -87,7 +87,7 @@ public class Parser {
             Long afterTime = System.nanoTime();
             Long timeElapsed = afterTime-beforeTime;
             timeElapsed = TimeUnit.NANOSECONDS.toMillis(timeElapsed);
-            eventfile.append("[Create query] Execution time : "+timeElapsed+" milli-seconds");
+            eventfile.append("[Create query] Execution time : "+timeElapsed+" milli-seconds\n");
             eventfile.flush();
         }else if(dropTableMatcher.find())
         {
@@ -99,7 +99,7 @@ public class Parser {
             Long afterTime = System.nanoTime();
             Long timeElapsed = afterTime-beforeTime;
             timeElapsed = TimeUnit.NANOSECONDS.toMillis(timeElapsed);
-            eventfile.append("[Drop query] Execution time : "+timeElapsed+" milli-seconds");
+            eventfile.append("[Drop query] Execution time : "+timeElapsed+" milli-seconds\n");
             eventfile.flush();
         }else if(updateTableMatcher.find())
         {
@@ -115,7 +115,7 @@ public class Parser {
             Long afterTime = System.nanoTime();
             Long timeElapsed = afterTime-beforeTime;
             timeElapsed = TimeUnit.NANOSECONDS.toMillis(timeElapsed);
-            eventfile.append("[Update query] Execution time : "+timeElapsed+" milli-seconds");
+            eventfile.append("[Update query] Execution time : "+timeElapsed+" milli-seconds\n");
             eventfile.flush();
         }else if (queryInput.equalsIgnoreCase("dump"))
         {
@@ -125,7 +125,7 @@ public class Parser {
             Long afterTime = System.nanoTime();
             Long timeElapsed = afterTime-beforeTime;
             timeElapsed = TimeUnit.NANOSECONDS.toMillis(timeElapsed);
-            eventfile.append("[Data dump] Execution time : "+timeElapsed+" milli-seconds");
+            eventfile.append("[Data dump] Execution time : "+timeElapsed+" milli-seconds\n");
             eventfile.flush();
         }else if (queryInput.equalsIgnoreCase("ERD"))
         {
@@ -135,7 +135,7 @@ public class Parser {
             Long afterTime = System.nanoTime();
             Long timeElapsed = afterTime-beforeTime;
             timeElapsed = TimeUnit.NANOSECONDS.toMillis(timeElapsed);
-            eventfile.append("[ERD] Execution time : "+timeElapsed+" milli-seconds");
+            eventfile.append("[ERD] Execution time : "+timeElapsed+" milli-seconds\n");
             eventfile.flush();
         }else
         {
