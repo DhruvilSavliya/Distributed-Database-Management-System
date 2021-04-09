@@ -37,6 +37,7 @@ public class Login {
                 }
                 user = bufferedReader.readLine();
             }
+            System.out.println("User not found!");
         } catch (Exception e) {
             System.out.println("Exception in application : "+e.getMessage());
             return LOGIN_FAILED;

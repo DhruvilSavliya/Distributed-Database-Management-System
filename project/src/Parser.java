@@ -51,7 +51,13 @@ public class Parser {
             String columns = selectMatcher.group(2);
             String tableName = selectMatcher.group(3);
             String conditions = selectMatcher.group(5);
-           dqlQueryExecution.selectTable(username,type,columns,tableName,conditions);
+            Long beforeTime = System.nanoTime();
+            dqlQueryExecution.selectTable(username,type,columns,tableName,conditions);
+            Long afterTime = System.nanoTime();
+            Long timeElapsed = afterTime-beforeTime;
+            timeElapsed = TimeUnit.NANOSECONDS.toMillis(timeElapsed);
+            eventfile.append("[Select query] Execution time : "+timeElapsed+" milli-seconds\n");
+            eventfile.flush();
             // Select methode code goes here
         }else if(insertMatcher.find())
         {
