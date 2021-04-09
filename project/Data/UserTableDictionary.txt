@@ -1,7 +1,7 @@
 Demonstration
 employee
-name;varchar
 id;int;pk
+name;varchar
 
 <<<<<<< HEAD
 Demonstration
