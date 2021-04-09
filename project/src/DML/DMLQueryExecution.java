@@ -44,46 +44,36 @@ public class DMLQueryExecution {
             FileReader fr = new FileReader(f);
             BufferedReader br = new BufferedReader(fr);
             String in = br.readLine();
-            System.out.println(in);
-            while (in!=null)
-            {
-                if (in.equalsIgnoreCase(username))
-                {
+
+            while (in != null) {
+                if (in.equalsIgnoreCase(username)) {
                     in = br.readLine();
-                    if (in.equalsIgnoreCase(TableName))
-                    {
+                    if (in.equalsIgnoreCase(TableName)) {
                         in = br.readLine();
                         boolean bl = !in.isBlank();
-                        while (bl)
-                        {
-                            String t[] = in.split(";");
-                            if (t.length > 2)
-                            {
-                                if (t[2].equalsIgnoreCase("pk"))
-                                {
+                        while (bl) {
+                            String[] t = in.split(";");
+                            if (t.length > 2) {
+                                if (t[2].equalsIgnoreCase("pk")) {
                                     File table = new File("Data/" + username + "_" + TableName + ".txt");
                                     FileReader tr = new FileReader(table);
                                     BufferedReader tablebr = new BufferedReader(tr);
                                     List<String> column1 = new ArrayList<>();
                                     String run = tablebr.readLine();
-                                    while (run != null)
-                                    {
+                                    while (run != null) {
                                         if (!run.isBlank()) {
-                                            String r[] = run.split(" ");
+                                            String[] r = run.split(" ");
                                             String tablecolumn = r[0];
-                                            if (tablecolumn.equalsIgnoreCase(t[0]))
-                                            {
+                                            if (tablecolumn.equalsIgnoreCase(t[0])) {
                                                 column1.add(r[1]);
                                             }
                                         }
                                         run = tablebr.readLine();
                                     }
-                                    if (ListOfColums.contains(t[0]))
-                                    {
+                                    if (ListOfColums.contains(t[0])) {
                                         int index = ListOfColums.indexOf(t[0]);
 
-                                        for (String s : column1)
-                                        {
+                                        for (String s : column1) {
                                             if (ListOfValues.get(index).equalsIgnoreCase(s)) {
                                                 System.out.println("Duplicate value exists while entering in primary key column!");
                                                 if (!locker.removeLock(username, TableName)) {
@@ -102,9 +92,7 @@ public class DMLQueryExecution {
                                         fileWriter.write("\n");
                                         fileWriter.close();
                                         System.out.println("Inserted Successfully");
-                                    }
-                                    else
-                                    {
+                                    } else {
                                         FileWriter fileWriter = new FileWriter(file, true);
 
                                         int length = ListOfColums.size();
@@ -122,8 +110,7 @@ public class DMLQueryExecution {
 
                                 }
                             }
-                            if(br.readLine()==null)
-                            {
+                            if (br.readLine() == null) {
                                 bl = false;
                             }
 
@@ -134,21 +121,7 @@ public class DMLQueryExecution {
                     }
                 }
             }
-
-
-//            FileWriter fileWriter = new FileWriter(file, true);
-//
-//            int length = ListOfColums.size();
-//            for (int i = 0; i < length; i++) {
-//                fileWriter.write(ListOfColums.get(i) + " " + ListOfValues.get(i) + "\n");
-//            }
-//            fileWriter.write("\n");
-//            fileWriter.close();
-//            System.out.println("Inserted Successfully");
-//            long EndTime = System.currentTimeMillis();
-//            long TotalTime = EndTime - StartTime;
-//            generalfile.append("[").append(username).append("] [Total time] [Insert Query]").append(String.valueOf(TotalTime)).append(" milliseconds\n");
-//            eventfile.append("[").append(username).append("] Inserted successfully").append("\n");
+            
         } else {
             System.out.println("Table does not exist to perform insert.");
             eventfile.append("[").append(username).append("] Table does not exist to perform insert.").append("\n");
